@@ -3,7 +3,7 @@ function testConnection(body) {
         
         const fetch = require('node-fetch');
         
-        fetch('http://ec2-54-87-66-8.compute-1.amazonaws.com:32002/api/tests/testConnection', {
+        fetch('http://10.100.222.226:3000/api/tests/testConnection', {
             method: 'POST',
             body: JSON.stringify(body),
             headers: { 'Content-Type': 'application/json' }
