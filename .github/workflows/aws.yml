@@ -1,9 +1,9 @@
-name: Build and Deploy testing container to k8s
+name: Build and Deploy api container to k8s
 
 on:
   push:
     branches: 
-    - 'api'
+    - 'master'
 
 env:
   REGISTRY: ghcr.io
@@ -33,7 +33,7 @@ jobs:
       - name: Checkout repository
         uses: actions/checkout@v2
         with:
-          ref: 'api'
+          ref: 'master'
 
       - name: Log in to the github container registry
         uses: docker/login-action@master
@@ -46,7 +46,7 @@ jobs:
         uses: docker/build-push-action@master
         with:
           push: true
-          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:api
+          tags: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}:main
 
   deploy-to-k8s:
     needs: build-and-push-testing-image
