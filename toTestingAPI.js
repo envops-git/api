@@ -1,4 +1,4 @@
-function testConnection(body) {
+function testGuacamoleConnection(body) {
     return new Promise((resolve, reject) => {
         
         const fetch = require('node-fetch');
@@ -12,4 +12,4 @@ function testConnection(body) {
     });
 }
 
-module.exports = { testConnection };
+module.exports = { testGuacamoleConnection };

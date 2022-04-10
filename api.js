@@ -1,7 +1,7 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const cors = require('cors');
-const guacamole = require('./toGuacamoleAPI');
+const testing = require('./toTestingAPI');
 const k8s = require('./toK8sAPI');
 
 const app = express();
@@ -21,7 +21,7 @@ app.post('/api/testConnection', (req, res) => {
         name: req.body.name
     }
 
-    guacamole.testConnection(body).then(result => {
+    testing.testGuacamoleConnection(body).then(result => {
         res.send(result);
     })
 });
